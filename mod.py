@@ -25,6 +25,8 @@ async def on_message(msg: discord.Message):
         users[msg.author.id] = eth.id
         usersX[eth.id] = msg.author.id
         usersO[eth.id] = msg.author
+        await ms.send(f"**{msg.author.display_name}:** " + msg.content)
+        
     
     elif (users.get(msg.author.id) != None and msg.guild == None):
         await client.get_channel(users[msg.author.id]).send(f"**{msg.author.display_name}:**  " + msg.content)
